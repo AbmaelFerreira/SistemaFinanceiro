@@ -1,0 +1,47 @@
+td.tipo {
+	width: 200px;
+	text-align: center;
+}
+
+td.pessoa {
+	width: 100px;
+	text-align: center;
+}
+
+td.descricao {
+	width: 100px;
+	text-align: center;
+}
+
+td.valor {
+	width: 100px;
+	text-align: center;
+}
+
+td.vencimento {
+	width: 100px;
+	text-align: center;
+}
+
+td.pagamento {
+	width: 100px;
+	text-align: center;
+}
+
+td.situacao {
+	width: 80px;
+	text-align: center;
+}
+
+td.acoes {
+	width: 40px;
+	text-align: center;
+}
+
+.grid .receita {
+	color: #0000ff;
+}
+
+.grid .despesa {
+	color: #c23030;
+}

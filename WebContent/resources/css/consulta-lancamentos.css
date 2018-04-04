@@ -45,3 +45,7 @@ td.acoes {
 .grid .despesa {
 	color: #c23030;
 }
+.grid.valorTotal {
+	padding:50px;
+	color: red;
+}

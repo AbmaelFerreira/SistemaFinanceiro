@@ -1,5 +1,6 @@
 package com.fisioana.financeiro.repository.infra;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -53,5 +54,22 @@ public class LancamentosHibernate implements Lancamentos {
 	@Override
 	public Lancamento porCodigo(Integer codigo) {
 		return em.find(Lancamento.class, codigo);
+	}
+
+	
+	public Lancamento somar()
+	{
+		soma();
+		return null;
+	}
+	
+	@Override
+	public void soma() {
+		em.getTransaction().begin();
+		 BigDecimal valorTotal = (BigDecimal) em.createQuery("sum(valor)from Lancamento",Lancamento.class).getResultList();
+		 Lancamento lancamento = new Lancamento();
+		 lancamento.setValorTotal(valorTotal);
+		 em.merge(lancamento);
+		
 	}
 }

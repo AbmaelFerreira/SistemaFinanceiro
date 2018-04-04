@@ -23,11 +23,15 @@ public class ConsultaLancamentoBean implements Serializable {
 
 	private List<Lancamento> lancamentos = new ArrayList<Lancamento>();
 	private Lancamento lancamentoSelecionado;
+	
+	private Lancamento lancamento;
 
+	
 	@PostConstruct
 	public void inicializar() {
 		Lancamentos lancamentos = repositorios.getLancamentos();
 		this.lancamentos = lancamentos.todos();
+		this.lancamento = lancamentos.somar();
 	}
 
 	public void excluir() {

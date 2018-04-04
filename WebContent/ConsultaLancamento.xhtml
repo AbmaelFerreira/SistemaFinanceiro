@@ -54,10 +54,14 @@
 					<f:facet name="header">
 											Valor
 					</f:facet>
+					
+					<f:facet name=""></f:facet>
 										
-					<h:outputText value="#{lancamento.valor}"/>
-								
+					<h:outputText value="#{lancamento.valorTotal}"/>
+				
+													
 				</h:column>
+				
 				<h:column>
 					<f:facet name="header">
 												Vencimento
@@ -100,6 +104,24 @@
 					
 				</h:column>
 			</h:dataTable>
+			
+			
+			<h:dataTable   value="#{consultaLancamentoBean.lancamentos}"  
+									var="lancamento"  
+									styleClass="valor"   
+									columnClasses="valorTotal"  >
+			    			  
+				<h:column>
+					<f:facet name="header">
+										<h:outputText value="#{lancamento.valorTotal}" />
+					</f:facet>
+					
+				</h:column>
+			</h:dataTable>
+			
+			
+			
+			
 		</h:form>
 	</ui:define>
 </ui:composition>

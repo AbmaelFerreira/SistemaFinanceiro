@@ -16,4 +16,7 @@ public interface Lancamentos {
 
 	public void remover(Lancamento lancamento);
 
+	public Lancamento somar();
+
+	void soma();
 }

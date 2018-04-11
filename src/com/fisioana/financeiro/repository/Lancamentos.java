@@ -15,8 +15,7 @@ public interface Lancamentos {
 	public Lancamento Guarda(Lancamento lancamento);
 
 	public void remover(Lancamento lancamento);
+	//public List<Lancamento> somaValor();
 
-	public Lancamento somar();
 
-	void soma();
 }

@@ -27,7 +27,15 @@ public class Lancamento implements Serializable {
 	private Date dataVencimento;
 	private boolean pago;
 	private Date dataPagamento;
-	private BigDecimal valorTotal;
+	private BigDecimal valorLancamentoTotal;
+
+	public BigDecimal getValorLancamentoTotal() {
+		return valorLancamentoTotal;
+	}
+
+	public void setValorLancamentoTotal(BigDecimal valorLancamentoTotal) {
+		this.valorLancamentoTotal = valorLancamentoTotal;
+	}
 
 	@Id
 	@GeneratedValue
@@ -75,13 +83,6 @@ public class Lancamento implements Serializable {
 	}
 
 	
-	public BigDecimal getValorTotal() {
-		return valorTotal;
-	}
-
-	public void setValorTotal(BigDecimal valorTotal) {
-		this.valorTotal = valorTotal;
-	}
 
 	@Column(name = "data_vencimento")
 	public Date getDataVencimento() {

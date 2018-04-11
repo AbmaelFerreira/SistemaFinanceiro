@@ -5,6 +5,7 @@ import com.fisioana.financeiro.repository.Lancamentos;
 
 public class GestaoLancamentos {
 
+	
 	private Lancamentos lancamentos;
 
 	public GestaoLancamentos(Lancamentos lancamentos) {
@@ -31,6 +32,8 @@ public class GestaoLancamentos {
 		}
 		this.lancamentos.remover(lancamento);
 	}
+	
+
 	
 	
 }

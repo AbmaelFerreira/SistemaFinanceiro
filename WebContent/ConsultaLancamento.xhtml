@@ -57,7 +57,7 @@
 					
 					<f:facet name=""></f:facet>
 										
-					<h:outputText value="#{lancamento.valorTotal}"/>
+					<h:outputText value="#{lancamento.valor}"/>
 				
 													
 				</h:column>
@@ -104,24 +104,27 @@
 					
 				</h:column>
 			</h:dataTable>
-			
-			
-			<h:dataTable   value="#{consultaLancamentoBean.lancamentos}"  
-									var="lancamento"  
-									styleClass="valor"   
-									columnClasses="valorTotal"  >
-			    			  
-				<h:column>
-					<f:facet name="header">
-										<h:outputText value="#{lancamento.valorTotal}" />
-					</f:facet>
+		
 					
-				</h:column>
-			</h:dataTable>
-			
-			
-			
-			
+					
+					
+					
+					
+					<h:dataTable var="lancamento"
+								  value="#{consultaLancamentoBean.valorTotal}" 
+								  width="10%"
+								  position="styleClass= a"
+								  styleClass="grid" 
+								  headerClass="cabecalho"
+								  rowClasses="cor-sim, cor-nao"
+								  columnClasses="tipo, pessoa, descricao, valor, vencimento, pagamento, situacao, acoes">
+								<h:column >
+										<f:facet name="header">
+													Valor  Total
+										</f:facet>
+ 									    <h:outputText value="#{consultaLancamentoBean.valorTotal}"/>
+								</h:column>
+					</h:dataTable>
 		</h:form>
 	</ui:define>
 </ui:composition>

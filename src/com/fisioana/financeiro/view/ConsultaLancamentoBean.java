@@ -1,6 +1,7 @@
 package com.fisioana.financeiro.view;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,17 +24,37 @@ public class ConsultaLancamentoBean implements Serializable {
 
 	private List<Lancamento> lancamentos = new ArrayList<Lancamento>();
 	private Lancamento lancamentoSelecionado;
-	
-	private Lancamento lancamento;
-
+	private Lancamento valorTotal;
+	BigDecimal valor = null;
 	
 	@PostConstruct
-	public void inicializar() {
+	public void inicializar() 
+	{
 		Lancamentos lancamentos = repositorios.getLancamentos();
 		this.lancamentos = lancamentos.todos();
-		this.lancamento = lancamentos.somar();
+		somaValorLancamento();
+		
+	
+	}
+		
+	public Lancamento getValorTotal() {
+		return valorTotal;
 	}
 
+	public void setValorTotal(Lancamento valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
+	public Lancamento somaValorLancamento() {
+	   for (Lancamento lancamento:this.lancamentos) {
+			
+			this.valor= this.valor.add(lancamento.getValor());
+			lancamento.setValorLancamentoTotal(valor);
+			
+		}
+	return valorTotal;
+	}
+		
 	public void excluir() {
 
 		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamentos());

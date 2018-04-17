@@ -8,6 +8,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.event.ActionEvent;
 
 import com.fisioana.financeiro.model.Lancamento;
 import com.fisioana.financeiro.repository.Lancamentos;
@@ -18,43 +19,35 @@ import com.fisioana.financeiro.util.Repositorios;
 
 @ManagedBean
 public class ConsultaLancamentoBean implements Serializable {
-	private static final long serialVersionUID = 1L;
+	
+	//ATRIBUTOS E OBJETOS
 
 	Repositorios repositorios = new Repositorios();
-
+	private static final long serialVersionUID = 1L;
 	private List<Lancamento> lancamentos = new ArrayList<Lancamento>();
 	private Lancamento lancamentoSelecionado;
-	private Lancamento valorTotal;
-	BigDecimal valor = null;
+	private BigDecimal valorTotal;
+	
 	
 	@PostConstruct
 	public void inicializar() 
 	{
 		Lancamentos lancamentos = repositorios.getLancamentos();
 		this.lancamentos = lancamentos.todos();
-		somaValorLancamento();
 		
+	}
+		//METODOS PRINCIPAIS
 	
-	}
-		
-	public Lancamento getValorTotal() {
-		return valorTotal;
-	}
-
-	public void setValorTotal(Lancamento valorTotal) {
-		this.valorTotal = valorTotal;
-	}
-
-	public Lancamento somaValorLancamento() {
-	   for (Lancamento lancamento:this.lancamentos) {
-			
-			this.valor= this.valor.add(lancamento.getValor());
-			lancamento.setValorLancamentoTotal(valor);
-			
-		}
-	return valorTotal;
-	}
-		
+//	public void somarValor(ActionEvent event) {
+//		Lancamentos somaValores = this.repositorios.getLancamentos();
+//		for(Lancamento lancamento:somaValores.todos())
+//		{
+//			this.valorTotal = this.valorTotal.add(lancamento.getValor());
+//		}
+//			
+//		
+//	}
+	
 	public void excluir() {
 
 		GestaoLancamentos gestaoLancamentos = new GestaoLancamentos(this.repositorios.getLancamentos());
@@ -66,6 +59,9 @@ public class ConsultaLancamentoBean implements Serializable {
 			FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, e.getMessage());
 		}
 	}
+	
+				//GETTES AND SETTERES
+	
 
 	public List<Lancamento> getLancamentos() {
 		return lancamentos;
@@ -78,4 +74,13 @@ public class ConsultaLancamentoBean implements Serializable {
 	public void setLancamentoSelecionado(Lancamento lancamentoSelecionado) {
 		this.lancamentoSelecionado = lancamentoSelecionado;
 	}
+
+	public BigDecimal getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(BigDecimal valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
 }

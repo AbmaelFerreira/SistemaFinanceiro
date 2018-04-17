@@ -104,14 +104,9 @@
 					
 				</h:column>
 			</h:dataTable>
-		
-					
-					
-					
-					
-					
-					<h:dataTable var="lancamento"
-								  value="#{consultaLancamentoBean.valorTotal}" 
+			
+			<h:dataTable var="lancamento"
+								  value="#{consultaLancamentoBean.lancamentos}" 
 								  width="10%"
 								  position="styleClass= a"
 								  styleClass="grid" 
@@ -121,11 +116,13 @@
 								<h:column >
 										<f:facet name="header">
 													Valor  Total
-										</f:facet>
- 									    <h:outputText value="#{consultaLancamentoBean.valorTotal}"/>
+									    </f:facet>
+									     <h:outputText value="#{consultaLancamentoBean.valorTotal}"/>
 								</h:column>
 					</h:dataTable>
-		</h:form>
+	 </h:form>
+	 
+	 
 	</ui:define>
 </ui:composition>
 

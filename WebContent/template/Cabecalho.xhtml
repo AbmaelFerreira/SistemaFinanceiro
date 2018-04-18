@@ -17,7 +17,8 @@
 					#{msg.home}
 				</h:link>
 				
-			<h:commandLink         action="ConsultaLancamento"            rendered="#{request.isUserInRole('consulta')}"> 
+			<h:commandLink  id="IdBotãolancCabecalho"       action="ConsultaLancamento"            rendered="#{request.isUserInRole('consulta')}"> 
+						<f:actionListener binding="#{registroCliqueBotaoListener}"/>
 						#{msg.entries}
 			</h:commandLink>
 				

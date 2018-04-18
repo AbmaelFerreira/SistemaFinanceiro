@@ -71,9 +71,9 @@
 					</h:outputText>
 				</h:column>
 				<h:column>
-					<f:facet name="header">
+							<f:facet name="header">
 											Pagamento
-										</f:facet>
+							</f:facet>
 					<h:outputText value="#{lancamento.dataPagamento}">
 						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
@@ -105,8 +105,9 @@
 				</h:column>
 			</h:dataTable>
 			
-			<h:dataTable var="lancamento"
-								  value="#{consultaLancamentoBean.lancamentos}" 
+			
+		<!-- 	<h:dataTable var="soma"
+								  value="#{registroCliqueBotaoListener}" 
 								  width="10%"
 								  position="styleClass= a"
 								  styleClass="grid" 
@@ -116,13 +117,17 @@
 								<h:column >
 										<f:facet name="header">
 													Valor  Total
-									    </f:facet>
-									     <h:outputText value="#{consultaLancamentoBean.valorTotal}"/>
+										</f:facet>
+										<h:outputText value="#{registroCliqueBotaoListener.valorTotal}"/>
 								</h:column>
 					</h:dataTable>
+					 -->
 	 </h:form>
-	 
-	 
+	 <h:form>
+	 <div id="valorTotal">
+	 		<h:outputText value="#{registroCliqueBotaoListener.valorTotal}"/>
+	 </div>
+	 </h:form>
 	</ui:define>
 </ui:composition>
 
